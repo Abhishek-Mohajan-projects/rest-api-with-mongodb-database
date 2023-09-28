@@ -6,7 +6,7 @@ const getAllUsers = async (req, res) => {
         const users = await User.find()
         res.status(201).json(users)
     }catch(error){
-        res.status(500).send(error.message)
+        res.status(405).send(error.message)
     }
 };
 
@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
         await newUser.save()
         res.status(200).json(newUser);
     } catch(error) {
-        res.status(500).send(error.message)
+        res.status(400).send(error.message)
     }
 };
 
@@ -52,7 +52,7 @@ const deleteUser = async (req, res) => {
         message: "user is deleted"
     });
     }catch(error){
-        res.status(500).send(error.message);
+        res.status(400).send(error.message);
     }
 };
 
